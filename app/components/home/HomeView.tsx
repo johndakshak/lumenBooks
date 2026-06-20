@@ -1,4 +1,5 @@
 import Navbar from "../Navbar";
+import BestSellers from "./BestSellers";
 import Hero from "./Hero";
 
 export default function HomeView (){
@@ -6,6 +7,7 @@ export default function HomeView (){
         <>
             <Navbar />
             <Hero />
+            <BestSellers />
         </>
     )
 }
