@@ -1,19 +1,19 @@
 export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden">
-      {/* Background image */}
+      
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/backgroungImg.jpg')" }}
+        style={{ backgroundImage: "url('/images/Background.png')" }}
       />
 
       <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-32">
         <div className="max-w-xl">
-          <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-white md:text-6xl">
+          <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-black md:text-6xl">
             Buy and sell your books{" "}
-            <span className="text-white">for the best prices</span>
+            <span className="text-[#6aa2ca]">for the best prices</span>
           </h1>
 
           <p className="mt-6 max-w-md text-white">

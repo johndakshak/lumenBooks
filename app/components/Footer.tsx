@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4">
           <div>
-            <h3 className="text-xl font-bold">Books</h3>
+            <img src="/images/lumen_books_logo_v2c.png" alt="" />
             <p className="mt-3 text-sm text-gray-400">
               Books Delivered. Imagination Unlimited.
             </p>
