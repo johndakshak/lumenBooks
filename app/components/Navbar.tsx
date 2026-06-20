@@ -4,7 +4,7 @@ import { ShoppingCart } from "@phosphor-icons/react/dist/ssr";
 
 export default function Navbar() {
   return (
-    <header className="w-full border-b border-gray-100">
+    <header className="w-full border-b border-gray-100 bg-gray-100">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/">
           <Image
