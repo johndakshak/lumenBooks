@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { getBestSellers } from "@/lib/data";
+import { getAllBooks } from "@/lib/data";
 
-export default async function BestSellers() {
-  const books = await getBestSellers();
+export default async function NewReleases() {
+  const books = await getAllBooks();
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
       <h2 className="mb-10 text-center text-2xl font-bold text-gray-900">
-        Best Seller Books
+        New Releases
       </h2>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
