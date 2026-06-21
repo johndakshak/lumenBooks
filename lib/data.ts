@@ -1,6 +1,6 @@
 import { Book } from "./types";
 
-const books: Book[] = [
+let books: Book[] = [
   {
     id: "1",
     slug: "cooking-made-easy",
@@ -80,4 +80,27 @@ export async function getBestSellers(): Promise<Book[]> {
 export async function getBookBySlug(slug: string): Promise<Book | undefined> {
   await delay(500);
   return books.find((book) => book.slug === slug);
+}
+
+export async function addBook(
+  newBook: Omit<Book, "id" | "slug" | "createdAt">
+): Promise<Book> {
+  await delay(300);
+
+  const id = String(books.length + 1);
+  const slug = newBook.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+  const book: Book = {
+    ...newBook,
+    id,
+    slug,
+    createdAt: new Date().toISOString(),
+  };
+
+  books = [...books, book];
+
+  return book;
 }
