@@ -1,5 +1,7 @@
+import Link from "next/link";
 import Image from "next/image";
 import { getAllBooks } from "@/lib/data";
+import AddToCartButton from "../buttons/AddToCartButton";
 
 export default async function NewReleases() {
   const books = await getAllBooks();
@@ -12,9 +14,10 @@ export default async function NewReleases() {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {books.map((book) => (
-          <div
+          <Link
             key={book.id}
-            className="rounded-2xl bg-indigo-50 p-4"
+            href={`/books/${book.slug}`}
+            className="rounded-2xl bg-indigo-50 p-4 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg"
           >
             <div className="relative mb-4 h-48 w-full overflow-hidden rounded-lg bg-gray-200">
               <Image
@@ -33,13 +36,8 @@ export default async function NewReleases() {
             <p className="text-sm text-indigo-600">{book.author}</p>
             <p className="mt-2 text-sm text-gray-600">{book.description}</p>
 
-            <button
-              type="button"
-              className="mt-4 w-full cursor-pointer rounded-lg bg-black py-2 text-sm font-medium text-white hover:bg-gray-800"
-            >
-              Add To Cart
-            </button>
-          </div>
+            <AddToCartButton />
+          </Link>
         ))}
       </div>
     </section>

@@ -25,7 +25,7 @@ export default async function BookPage({ params }: BookPageProps) {
   return (
     <>
         <Navbar />
-        <section className="mx-auto max-w-4xl px-6 py-16">
+        <section className="mx-auto max-w-4xl px-6 py-16 mt-20">
             <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
                 <div className="relative h-96 w-full overflow-hidden rounded-xl bg-gray-200">
                 <Image
