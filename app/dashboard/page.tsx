@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getAllBooks } from "@/lib/data";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import Link from "next/link";
 
 export default async function DashboardPage() {
   const cookieStore = await cookies();
@@ -55,9 +56,15 @@ export default async function DashboardPage() {
 
         {/* Listings */}
         <section className="mx-auto max-w-6xl px-6 py-10">
-          <h2 className="mb-6 text-xl font-bold text-gray-900">
-            Your Listings
-          </h2>
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-xl font-bold text-gray-900">Your Listings</h2>
+            <Link
+              href="/dashboard/new"
+              className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+            >
+              + Add New Book
+            </Link>
+          </div>     
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {books.map((book) => (
