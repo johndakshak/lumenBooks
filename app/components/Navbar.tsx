@@ -5,7 +5,7 @@ import NavSearchBar from "./NavSearchBar";
 
 export default function Navbar() {
   return (
-    <header className="w-full">
+    <header className="fixed left-0 right-0 top-0  z-10 w-full bg-[#6aa2ca]/30 backdrop-blur-sm">    
       <nav className="mx-auto grid max-w-7xl grid-cols-3 items-center px-6 py-4">
   
         <div>
