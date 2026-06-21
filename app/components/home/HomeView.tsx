@@ -9,11 +9,15 @@ import NewReleases from "./NewReleases";
 export default function HomeView (){
     return (
         <>
-            <Hero />
-            <BestSellers />
-            <FindFavorite />
-            <AwardsBanner />
-            <NewReleases />
+            <Navbar />
+                <main className="pt-24">
+                    <Hero />
+                    <BestSellers />
+                    <FindFavorite />
+                    <AwardsBanner />
+                    <NewReleases />
+                </main>
+            <Footer />
         </>
     )
 }
