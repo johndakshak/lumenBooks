@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 
 const VALID_EMAIL = "user@example.com";
 const VALID_PASSWORD = "lumen123";
+const SELLER_NAME = "John Doe";
 
 export type LoginActionState = {
   status: "idle" | "error" | "success";
@@ -17,10 +18,6 @@ export async function login(
   const email = formData.get("email");
   const password = formData.get("password");
 
-  // Temporary artificial delay, just to visually confirm the pending state.
-  // Remove this once you've confirmed it works.
-  await new Promise((resolve) => setTimeout(resolve, 1500));  
-
   if (!email || !password) {
     return { status: "error", message: "Please fill in both fields." };
   }
@@ -33,6 +30,11 @@ export async function login(
 
   const cookieStore = await cookies();
   cookieStore.set("auth", "true", {
+    httpOnly: true,
+    path: "/",
+    maxAge: 60 * 60 * 24,
+  });
+  cookieStore.set("sellerName", SELLER_NAME, {
     httpOnly: true,
     path: "/",
     maxAge: 60 * 60 * 24,
