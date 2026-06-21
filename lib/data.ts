@@ -86,21 +86,22 @@ export async function addBook(
   newBook: Omit<Book, "id" | "slug" | "createdAt">
 ): Promise<Book> {
   await delay(300);
-
   const id = String(books.length + 1);
   const slug = newBook.title
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
-
   const book: Book = {
     ...newBook,
     id,
     slug,
     createdAt: new Date().toISOString(),
   };
-
   books = [...books, book];
-
   return book;
+}
+
+export async function getRecommendedBooks(excludeSlug: string): Promise<Book[]> {
+  await delay(2000);
+  return books.filter((book) => book.slug !== excludeSlug).slice(0, 3);
 }

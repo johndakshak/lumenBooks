@@ -17,10 +17,16 @@ export function useBookSearch() {
     }
 
     const timeoutId = setTimeout(async () => {
-      const response = await fetch(`/api/books?q=${encodeURIComponent(query)}`);
-      const data: Book[] = await response.json();
-      setResults(data);
-      setIsOpen(true);
+      try {
+        const response = await fetch(`/api/books?q=${encodeURIComponent(query)}`);
+        const data: Book[] = await response.json();
+        setResults(data);
+        setIsOpen(true);
+      } catch (error) {
+        console.error("Search request failed:", error);
+        setResults([]);
+        setIsOpen(false);
+      }
     }, 300);
 
     return () => clearTimeout(timeoutId);
