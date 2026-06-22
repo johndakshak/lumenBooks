@@ -12,11 +12,11 @@ type NavbarProps = {
 export default function Navbar({ variant = "public", sellerName = "Seller" }: NavbarProps) {
   return (
     <header className="fixed left-0 right-0 top-0 z-10 w-full bg-black/30 backdrop-blur-sm">
-      <nav className="mx-auto grid max-w-7xl grid-cols-3 items-center px-6 py-4">
+      <nav className="mx-auto grid max-w-7xl grid-cols-3 items-center px-6 ">
         <div>
           <Link href="/">
             <Image
-              src="/images/lumen_books_logo_black.png"
+              src="/images/lumen_books_logo_v2c.png"
               alt="Lumen Books logo"
               width={250}
               height={60}

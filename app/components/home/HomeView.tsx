@@ -10,7 +10,7 @@ export default function HomeView (){
     return (
         <>
             <Navbar />
-                <main className="pt-24">
+                <main className="">
                     <Hero />
                     <BestSellers />
                     <FindFavorite />
