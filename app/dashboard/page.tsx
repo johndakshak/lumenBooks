@@ -16,7 +16,7 @@ export default async function DashboardPage() {
 
   return (
     <>
-      <Navbar variant="dashboard" />
+      <Navbar variant="dashboard" sellerName={sellerName} />
       <main className="pt-20">
         {/* Welcome banner */}
         <section className="w-full bg-gray-900 py-12">
