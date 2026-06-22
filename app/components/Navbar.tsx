@@ -1,18 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { cookies } from "next/headers";
 import { ShoppingCart } from "@phosphor-icons/react/dist/ssr";
 import NavSearchBar from "./NavSearchBar";
 import UserMenu from "./UserMenu";
 
 type NavbarProps = {
   variant?: "public" | "dashboard";
+  sellerName?: string;
 };
 
-export default async function Navbar({ variant = "public" }: NavbarProps) {
-  const cookieStore = await cookies();
-  const sellerName = cookieStore.get("sellerName")?.value ?? "Seller";
-
+export default function Navbar({ variant = "public", sellerName = "Seller" }: NavbarProps) {
   return (
     <header className="fixed left-0 right-0 top-0 z-10 w-full bg-black/30 backdrop-blur-sm">
       <nav className="mx-auto grid max-w-7xl grid-cols-3 items-center px-6 py-4">
@@ -28,7 +25,6 @@ export default async function Navbar({ variant = "public" }: NavbarProps) {
             />
           </Link>
         </div>
-
         <ul className="flex items-center justify-center gap-8">
           <li>
             <Link href="/" className="text-sm font-medium text-white hover:text-[#6aa2ca]">
@@ -55,7 +51,6 @@ export default async function Navbar({ variant = "public" }: NavbarProps) {
             </>
           )}
         </ul>
-
         <div className="flex items-center justify-end gap-4">
           <NavSearchBar />
           <Link href="/cart" aria-label="Cart" className="text-white hover:text-[#6aa2ca]">
