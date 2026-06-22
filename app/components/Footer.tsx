@@ -32,10 +32,15 @@ export default function Footer() {
             </Link>
             </li>
             <li>
-            <Link href="/dashboard" className="hover:text-white">
-                Dashboard
-            </Link>
+              <Link href="/dashboard" className="hover:text-white">
+                  Dashboard
+              </Link>
             </li>
+            <li>
+              <Link href="/contact" className="hover:text-white">
+                  Contact us
+              </Link>
+            </li>            
         </ul>
         </div>
 
