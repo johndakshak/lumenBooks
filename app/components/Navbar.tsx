@@ -48,6 +48,11 @@ export default function Navbar({ variant = "public", sellerName = "Seller" }: Na
                   Dashboard
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="text-sm font-medium text-white hover:text-[#6aa2ca]">
+                  Contact us
+                </Link>
+              </li>              
             </>
           )}
         </ul>
