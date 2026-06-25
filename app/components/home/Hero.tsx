@@ -10,13 +10,13 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-right md:bg-center"
         style={{ backgroundImage: "url('/images/Background.png')" }}
       />
       <div className="absolute inset-0 bg-black/20" />
-      <div className="relative mx-auto max-w-7xl px-6 py-32">
+      <div className="relative mx-auto max-w-7xl px-6 py-16 md:py-32">
         <div className="max-w-xl">
-          <h1 className="text-5xl font-extrabold leading-tight tracking-tight text-black md:text-6xl">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-black sm:text-5xl md:text-6xl">
             Buy and sell your books{" "}
             <span className="text-[#6aa2ca]">for the best prices</span>
           </h1>
