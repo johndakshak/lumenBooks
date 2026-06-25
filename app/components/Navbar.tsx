@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ShoppingCart } from "@phosphor-icons/react/dist/ssr";
 import NavSearchBar from "./NavSearchBar";
 import UserMenu from "./UserMenu";
+import MobileMenu from "./MobileMenu";
 
 type NavbarProps = {
   variant?: "public" | "dashboard";
@@ -12,20 +13,21 @@ type NavbarProps = {
 export default function Navbar({ variant = "public", sellerName = "Seller" }: NavbarProps) {
   return (
     <header className="fixed left-0 right-0 top-0 z-10 w-full bg-black/30 backdrop-blur-sm">
-      <nav className="mx-auto grid max-w-7xl grid-cols-3 items-center px-6 ">
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:grid md:grid-cols-3">
         <div>
           <Link href="/">
             <Image
               src="/images/lumen_books_logo_v2c.png"
               alt="Lumen Books logo"
-              width={250}
-              height={60}
+              width={180}
+              height={45}
               priority
               className="h-auto w-auto"
             />
           </Link>
         </div>
-        <ul className="flex items-center justify-center gap-8">
+
+        <ul className="hidden items-center justify-center gap-8 md:flex">
           <li>
             <Link href="/" className="text-sm font-medium text-white hover:text-[#6aa2ca]">
               Home
@@ -52,16 +54,20 @@ export default function Navbar({ variant = "public", sellerName = "Seller" }: Na
                 <Link href="/contact" className="text-sm font-medium text-white hover:text-[#6aa2ca]">
                   Contact us
                 </Link>
-              </li>              
+              </li>
             </>
           )}
         </ul>
+
         <div className="flex items-center justify-end gap-4">
-          <NavSearchBar />
+          <div className="hidden md:block">
+            <NavSearchBar />
+          </div>
           <Link href="/cart" aria-label="Cart" className="text-white hover:text-[#6aa2ca]">
             <ShoppingCart size={22} weight="bold" />
           </Link>
           {variant === "dashboard" && <UserMenu name={sellerName} />}
+          <MobileMenu variant={variant} />
         </div>
       </nav>
     </header>
